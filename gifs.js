@@ -12,7 +12,7 @@ $(document).ready(function(){
 
     var theTag = $('#tag').val();
     theTag = theTag.replace(" ","+")
-    console.log('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag='+theTag);
+    
 
     $.get('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag='+theTag)
     .then(function(ob){

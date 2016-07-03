@@ -9,9 +9,14 @@ $(document).ready(function(){
   });
 
   $('#random').on('click',function(){
-    $.get('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC')
+
+    var theTag = $('#tag').val();
+    theTag = theTag.replace(" ","+")
+    console.log('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag='+theTag);
+
+    $.get('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag='+theTag)
     .then(function(ob){
-      $('#gifBucket').html('<img src='+ ob.data.image_url +'>');      
+      $('#gifBucket').html('<img src='+ ob.data.image_url +'>');
     })
     .catch(function(){
       console.log('Something went wrong!');
